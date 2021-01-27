@@ -13,9 +13,13 @@ while (input !== "quit" && input !== "q") {
     todos.push(newTodo)
     console.log(`${newTodo} added to the list.`)
   } else if (input === "delete") {
-    const index = prompt("OK.Enter an index to delete.")
-    const deletes = todos.splice(index, 1)
-    console.log(`OK.Deleted ${deletes}`)
+    const index = parseInt(prompt("OK.Enter an index to delete."))
+    if (!Number.isNaN(index)) {
+      const deletes = todos.splice(index, 1)
+      console.log(`OK.Deleted ${deletes}`)
+    } else {
+      console.log("Unknown index.")
+    }
   }
   input = prompt("What would you like to do?")
 }
